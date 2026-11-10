@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173a2b" />
+    <meta name="description" content="Demonstração fictícia de vitrine para uma confeitaria. Pedidos ilustrativos, sem envio real." />
+    <title>Confeitaria | Doce Ideia · Exemplo</title>
+    <link rel="stylesheet" href="./estilos.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <header class="topo">
+      <div class="largura topo-conteudo">
+        <a class="marca" href="#inicio" aria-label="Voltar ao início"><span class="marca-icone">✳</span><span id="marca-nome">Doce Ideia · Exemplo</span></a>
+        <div class="topo-direita"><span class="aberto"><span class="bolinha"></span> Pedidos pelo WhatsApp</span><a class="sacola-link" href="#pedido">Meu pedido <span id="contagem-topo">0</span></a></div>
+      </div>
+    </header>
+
+    <main id="inicio" class="largura">
+      <section class="hero" aria-labelledby="titulo">
+        <div class="hero-texto">
+          <span class="etiqueta" id="categoria-loja">CONFEITARIA ARTESANAL · DEMONSTRAÇÃO</span>
+          <h1 id="titulo">Um carinho em forma de doce para cada ocasião.</h1>
+          <p id="descricao-loja">Conheça sabores e kits para presentear. Escolha seus favoritos e veja como o pedido chega organizado ao WhatsApp da confeitaria.</p>
+          <a href="#catalogo" class="botao botao-claro">Explorar cardápio <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-arte" aria-hidden="true"><span class="circulo-arte"></span><span class="arte-principal">🎂</span><span class="arte-pequena">🧁</span><span class="arte-estrela">✴</span></div>
+      </section>
+
+      <div class="beneficios" aria-label="Informações da loja">
+        <div class="beneficio"><span aria-hidden="true">◷</span><div><strong>Horário de atendimento</strong><small id="horario"></small></div></div>
+        <div class="beneficio"><span aria-hidden="true">⌖</span><div><strong>Onde encontrar</strong><small id="local"></small></div></div>
+        <div class="beneficio"><span aria-hidden="true">♡</span><div><strong>Seu pedido, do seu jeito</strong><small>Finalize direto pelo WhatsApp</small></div></div>
+      </div>
+
+      <div class="conteudo">
+        <section class="produtos" id="catalogo" aria-labelledby="titulo-catalogo">
+          <div class="secao-cabecalho"><div><span class="sobrelinha">ESCOLHA SEUS FAVORITOS</span><h2 id="titulo-catalogo">Doces e kits <span class="mini-estrela">✳</span></h2></div><p>Produtos e valores ilustrativos.</p></div>
+          <div id="filtros" class="filtros" role="group" aria-label="Filtrar categorias"></div>
+          <div id="grade-produtos" class="grade-produtos"></div>
+        </section>
+
+        <aside class="painel-pedido" id="pedido" aria-labelledby="titulo-pedido">
+          <div class="painel-cabecalho"><div><span class="sobrelinha">TUDO CERTINHO?</span><h2 id="titulo-pedido">Meu pedido <span aria-hidden="true">🛍️</span></h2></div><span class="badge-contagem" id="contagem-painel">0 itens</span></div>
+          <div id="itens-pedido" class="itens-pedido" aria-live="polite"><p class="carrinho-vazio">Seu carrinho ainda está vazio. Escolha algo gostoso no cardápio!</p></div>
+          <div class="resumo"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+          <p class="aviso-preco">Disponibilidade e eventual taxa de entrega são confirmadas pela loja no WhatsApp.</p>
+          <form id="form-pedido" novalidate>
+            <label for="nome">Seu nome <span aria-hidden="true">*</span></label><input id="nome" name="nome" placeholder="Como podemos chamar você?" autocomplete="name" required maxlength="80" />
+            <fieldset id="modalidade-grupo"><legend>Como deseja receber?</legend><div class="modalidades"><label class="radio-opcao"><input type="radio" name="modalidade" value="Retirada" checked /> Retirar</label><label class="radio-opcao" id="opcao-entrega"><input type="radio" name="modalidade" value="Entrega" /> Entrega</label></div></fieldset>
+            <div id="campo-endereco" hidden><label for="endereco">Endereço para entrega <span aria-hidden="true">*</span></label><textarea id="endereco" name="endereco" rows="2" placeholder="Rua, número, bairro e referência" maxlength="300"></textarea></div>
+            <label for="observacoes">Observações <span class="opcional">(opcional)</span></label><textarea id="observacoes" name="observacoes" rows="2" placeholder="Ex.: cartão presente, mensagem no bolo..." maxlength="300"></textarea>
+            <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+            <button id="finalizar" type="submit" class="botao botao-enviar">Ver exemplo de pedido <span aria-hidden="true">↗</span></button>
+          </form>
+          <div id="previa" class="previa" hidden><h3>Prévia do pedido</h3><p>Loja e valores fictícios. Copie a mensagem para conferir como o cliente faria o pedido.</p><pre id="texto-previa"></pre><button id="copiar" type="button" class="botao botao-copiar">Copiar mensagem</button></div>
+          <p class="rodape-painel">🔒 Sem cadastro ou pagamento online.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="rodape"><div class="largura"><strong id="nome-rodape">Doce Ideia · Exemplo</strong><span>Demonstração fictícia. Nenhum pedido é enviado.</span></div></footer>
+  </body>
+</html>
