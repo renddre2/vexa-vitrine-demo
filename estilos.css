@@ -17,6 +17,14 @@ a { color: inherit; text-decoration: none; }
 .bolinha { background: #4aaf6e; width: 8px; height: 8px; border-radius: 100%; box-shadow: 0 0 0 4px #e5f5e9; }
 .sacola-link { background: #f3f7f0; border-radius: 99px; padding: 12px 15px; display: inline-flex; gap: 12px; align-items: center; }
 .sacola-link span { display: grid; place-items: center; min-width: 24px; height: 24px; background: #24583e; color: #fff; border-radius: 50%; }
+.faixa-demo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-top: 25px; padding: 15px 20px; background: #f0f5ed; border: 1px solid #e2eadd; border-radius: 16px; }
+.faixa-demo-texto { display: grid; gap: 4px; }
+.faixa-demo-texto strong { font-size: 12px; color: #27563c; }
+.faixa-demo-texto span { font-size: 12px; line-height: 1.5; color: #657a6b; }
+.modelos-links { display: flex; flex-wrap: wrap; gap: 7px; }
+.modelo-link { padding: 9px 12px; border-radius: 999px; border: 1px solid #bcd5c2; font-size: 12px; font-weight: 700; background: #fff; color: #315a40; }
+.modelo-link:hover, .modelo-link:focus-visible { background: #e2ecdf; }
+.modelo-link[aria-current="page"] { background: #205439; color: #fff; border-color: #205439; }
 .hero { margin-top: 32px; background: #173e2d; color: #fff; min-height: 340px; border-radius: 24px; display: grid; grid-template-columns: 1.3fr 1fr; overflow: hidden; position: relative; isolation: isolate; }
 .hero-texto { align-self: center; padding: 44px 20px 44px 60px; position: relative; z-index: 2; }
 .etiqueta { display: inline-block; color: #d6ed9e; font-size: 12px; font-weight: 800; letter-spacing: 2.3px; margin-bottom: 20px; }
@@ -39,6 +47,7 @@ h1 { font-size: clamp(34px, 4vw, 55px); line-height: 1.08; letter-spacing: -2.1p
 .beneficio strong { font-size: 12px; margin-bottom: 5px; }
 .beneficio small { color: #74877a; font-size: 11px; }
 .conteudo { display: grid; grid-template-columns: minmax(0, 1fr) 352px; align-items: start; gap: 30px; padding-top: 48px; padding-bottom: 70px; }
+.produtos { min-width: 0; }
 .secao-cabecalho { display: flex; gap: 12px; align-items: end; justify-content: space-between; margin-bottom: 24px; }
 .sobrelinha { font-size: 10px; font-weight: 900; letter-spacing: 1.7px; color: #a27b3b; }
 h2 { font-size: 29px; letter-spacing: -1.2px; margin: 8px 0 0; }
@@ -108,5 +117,6 @@ input[type="radio"] { accent-color: #306c4c; }
 [hidden] { display: none !important; }
 @media (max-width: 1040px) { .conteudo { grid-template-columns: minmax(0, 1fr) 315px; gap: 20px; } .painel-pedido { padding: 18px; } .hero-texto { padding-left: 35px; } }
 @media (max-width: 850px) { .hero { grid-template-columns: 1fr 0.65fr; } .arte-pequena { font-size: 60px; } .conteudo { grid-template-columns: 1fr; } .painel-pedido { position: static; max-width: 620px; width: 100%; margin-inline: auto; } .beneficio { justify-content: start; } .secao-cabecalho { flex-wrap: wrap; } }
+@media (max-width: 600px) { .faixa-demo { margin-top: 15px; padding: 14px; } .modelos-links { width: 100%; } .modelo-link { flex-grow: 1; text-align: center; } }
 @media (max-width: 600px) { .largura { width: min(100% - 28px, 540px); } .topo-conteudo { min-height: 67px; } .marca { font-size: 17px; } .marca-icone { width: 32px; height: 32px; } .aberto { display: none; } .sacola-link { padding: 8px; font-size: 11px; } .hero { grid-template-columns: 1fr; margin-top: 17px; min-height: unset; } .hero-texto { padding: 35px 27px 0; } h1 { font-size: 37px; } .hero-arte { min-height: 165px; } .circulo-arte { width: 190px; transform: translate(20%, 40%); } .arte-principal { font-size: 140px; transform: translateY(5%) rotate(-14deg); } .arte-pequena { left: 20%; bottom: -15px; font-size: 55px; } .arte-estrela { font-size: 35px; } .beneficios { grid-template-columns: 1fr 1fr; padding: 22px 0; gap: 18px; } .beneficio:last-child { grid-column: 1 / -1; } .beneficio > span { width: 35px; height: 35px; font-size: 20px; } .beneficio strong { font-size: 11px; } .beneficio small { font-size: 10px; } .conteudo { padding-top: 35px; gap: 36px; } h2 { font-size: 26px; } .secao-cabecalho p { display: none; } .grade-produtos { gap: 11px; } .arte-produto { height: 126px; } .emoji-produto { font-size: 73px; } .corpo-produto { padding: 13px 12px; } .corpo-produto h3 { font-size: 14px; } .descricao-produto { font-size: 11px; min-height: 49px; } .preco-produto { font-size: 16px; } .destaque-produto { font-size: 9px; } .rodape .largura { align-items: start; flex-direction: column; gap: 8px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .botao { transition: none; } }

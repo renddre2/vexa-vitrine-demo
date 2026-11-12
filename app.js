@@ -1,4 +1,4 @@
-import { loja, produtos } from "./config.js";
+import { loja, produtos, modelos, modeloAtual, modoDemonstracao } from "./modelos.js";
 import { alterarQuantidade, dinheiro, itensSelecionados, linkWhatsApp, montarMensagem, totalPedido } from "./pedido.js";
 
 const $ = (id) => document.getElementById(id);
@@ -94,7 +94,7 @@ function renderizarCarrinho() {
   const lista = $("itens-pedido");
   lista.replaceChildren();
   if (!itens.length) {
-    lista.append(texto("p", "Seu carrinho ainda está vazio. Escolha algo gostoso no cardápio!", "carrinho-vazio"));
+    lista.append(texto("p", "Seu carrinho ainda está vazio. Escolha seus produtos no catálogo!", "carrinho-vazio"));
     return;
   }
 
@@ -125,18 +125,48 @@ function atualizarEntrega() {
 }
 
 function configurarLoja() {
+  $("faixa-demo").hidden = !modoDemonstracao;
+  $("aviso-catalogo").hidden = !modoDemonstracao;
+  $("aviso-rodape").hidden = !modoDemonstracao;
   $("marca-nome").textContent = loja.nome;
+  $("marca-icone").textContent = loja.icone;
   $("categoria-loja").textContent = loja.categoria.toUpperCase();
   $("titulo").textContent = loja.chamada;
   $("descricao-loja").textContent = loja.descricao;
+  $("arte-principal").textContent = loja.icone;
+  $("arte-pequena").textContent = loja.iconeSecundario;
   $("horario").textContent = loja.horario;
   $("local").textContent = loja.local;
+  $("titulo-catalogo-texto").textContent = loja.tituloCatalogo;
+  $("observacoes").placeholder = loja.observacoesPlaceholder;
   $("nome-rodape").textContent = loja.nome;
   $("opcao-entrega").hidden = !loja.aceitaEntrega;
-  document.title = `Cardápio | ${loja.nome}`;
+  document.title = `Vitrine | ${loja.nome}`;
+
+  if (modoDemonstracao) {
+    const links = $("modelos-links");
+    for (const [chave, modelo] of Object.entries(modelos)) {
+      const ancora = document.createElement("a");
+      ancora.href = `?modelo=${encodeURIComponent(chave)}`;
+      ancora.textContent = modelo.titulo;
+      ancora.className = "modelo-link";
+      if (chave === modeloAtual) ancora.setAttribute("aria-current", "page");
+      links.append(ancora);
+    }
+  }
 
   const numeroConfigurado = linkWhatsApp(loja.whatsapp, "Teste") !== null;
-  $("finalizar").firstChild.textContent = numeroConfigurado ? "Enviar pedido no WhatsApp " : "Ver exemplo de pedido ";
+  $("finalizar").firstChild.textContent = numeroConfigurado ? "Enviar pedido no WhatsApp " : "Ver prévia de pedido ";
+  $("selo-whatsapp").textContent = numeroConfigurado ? "Pedidos pelo WhatsApp" : "Prévia de pedido";
+  $("texto-pedido-beneficio").textContent = numeroConfigurado ? "Finalize direto pelo WhatsApp" : "Veja a prévia para o WhatsApp";
+  $("aviso-preco").textContent = modoDemonstracao
+    ? "Valores ilustrativos. Na versão real, a loja confirma disponibilidade e eventual taxa de entrega no WhatsApp."
+    : "Disponibilidade e eventual taxa de entrega são confirmadas pela loja no WhatsApp.";
+  $("aviso-previa").textContent = modoDemonstracao
+    ? "Loja e valores fictícios. Copie a mensagem para conferir como o cliente faria o pedido."
+    : numeroConfigurado
+      ? "Confira a mensagem que será enviada pelo WhatsApp."
+      : "Configure o número do WhatsApp da loja para habilitar o envio.";
 }
 
 function finalizarPedido(evento) {

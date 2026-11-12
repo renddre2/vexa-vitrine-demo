@@ -6,9 +6,13 @@ export const loja = {
   chamada: "Um carinho em forma de doce para cada ocasião.",
   descricao: "Conheça sabores e kits para presentear. Escolha seus favoritos e veja como o pedido chega organizado ao WhatsApp da confeitaria.",
   horario: "Seg a sáb · 9h às 18h (exemplo)",
-  local: "Goiânia · Loja fictícia",
+  local: "Localidade ilustrativa · Brasil",
   whatsapp: "",
   aceitaEntrega: true,
+  tituloCatalogo: "Doces e kits",
+  icone: "🎂",
+  iconeSecundario: "🧁",
+  observacoesPlaceholder: "Ex.: cartão presente, mensagem no bolo...",
 };
 
 export const produtos = [
