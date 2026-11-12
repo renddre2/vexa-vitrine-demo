@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import { modelos } from "../modelos.js";
 import { alterarQuantidade, itensSelecionados, linkWhatsApp, montarMensagem, totalPedido } from "../pedido.js";
 
-test("os três modelos têm catálogo válido e pedidos apenas ilustrativos", () => {
-  assert.deepEqual(Object.keys(modelos), ["confeitaria", "lanchonete", "presentes"]);
+test("os cinco modelos têm catálogo válido e pedidos apenas ilustrativos", () => {
+  assert.deepEqual(Object.keys(modelos), ["confeitaria", "lanchonete", "presentes", "floricultura", "roupas"]);
 
   for (const [nome, { loja, produtos }] of Object.entries(modelos)) {
     assert.ok(loja.nome && loja.chamada && loja.local, nome);
@@ -34,6 +34,8 @@ test("o seletor escolhe apenas modelos conhecidos", async () => {
     ["?modelo=confeitaria", "confeitaria"],
     ["?modelo=lanchonete", "lanchonete"],
     ["?modelo=presentes", "presentes"],
+    ["?modelo=floricultura", "floricultura"],
+    ["?modelo=roupas", "roupas"],
     ["?modelo=desconhecido", "confeitaria"],
   ]) {
     globalThis.location = { search: parametro };
