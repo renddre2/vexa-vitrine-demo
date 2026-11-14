@@ -6,6 +6,8 @@ Vitrines fictícias de pequenos negócios para apresentar o serviço a empreende
 
 Abra [a demo pública](https://renddre2.github.io/vexa-vitrine-demo/) e escolha **Confeitaria**, **Lanchonete**, **Presentes**, **Floricultura** ou **Roupas** para testar catálogo, filtros, carrinho e prévia de pedido.
 
+A faixa superior da demonstração apresenta a identidade neon da Vexa Digital, com o logo em `assets/logo-vexa-digital.png` e a seleção dos cinco segmentos. Ela é ocultada automaticamente quando `modoDemonstracao = false`.
+
 Para testar localmente, na raiz deste repositório execute `python -m http.server 4173` e acesse `http://localhost:4173/`. É necessário servidor HTTP por causa dos módulos JavaScript.
 
 Verifique os dados e o fluxo de mensagens dos modelos com `node --test`.
