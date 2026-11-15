@@ -1,7 +1,9 @@
-import { loja, produtos, modelos, modeloAtual, modoDemonstracao } from "./modelos.js";
+import { loja, produtos, modelos, modeloAtual, modoDemonstracao } from "./modelos.js?v=2";
 import { alterarQuantidade, dinheiro, itensSelecionados, linkWhatsApp, montarMensagem, totalPedido } from "./pedido.js";
 
 const $ = (id) => document.getElementById(id);
+const modelo = modelos[modeloAtual];
+const diretorioFotos = "./assets/vitrines/";
 let carrinho = {};
 let categoriaAtual = "Todos";
 let mensagemAtual = "";
@@ -56,10 +58,12 @@ function renderizarProdutos() {
 
     const arte = document.createElement("div");
     arte.className = "arte-produto";
-    if (produto.foto) {
+    const exemplo = modoDemonstracao && modelo.fotos?.[produto.id];
+    const foto = produto.foto || (exemplo && `${diretorioFotos}${exemplo}.webp`);
+    if (foto) {
       const imagem = document.createElement("img");
       imagem.className = "foto-produto";
-      imagem.src = produto.foto;
+      imagem.src = foto;
       imagem.alt = produto.nome;
       imagem.loading = "lazy";
       arte.append(imagem);
@@ -125,12 +129,14 @@ function atualizarEntrega() {
 }
 
 function configurarLoja() {
-  $("faixa-demo").hidden = !modoDemonstracao;
+  $("modelos-demo").hidden = !modoDemonstracao;
+  $("loja-ficticia").hidden = !modoDemonstracao;
+  $("vexa-assinatura").hidden = !modoDemonstracao;
   $("aviso-catalogo").hidden = !modoDemonstracao;
   $("aviso-rodape").hidden = !modoDemonstracao;
   $("marca-nome").textContent = loja.nome;
-  $("marca-icone").textContent = loja.icone;
-  $("categoria-loja").textContent = loja.categoria.toUpperCase();
+  $("marca-icone").textContent = (modoDemonstracao && modelo.monograma) || loja.icone;
+  $("categoria-loja").textContent = loja.categoria;
   $("titulo").textContent = loja.chamada;
   $("descricao-loja").textContent = loja.descricao;
   $("arte-principal").textContent = loja.icone;
@@ -144,20 +150,32 @@ function configurarLoja() {
   document.title = `Vitrine | ${loja.nome}`;
 
   if (modoDemonstracao) {
+    document.body.dataset.modelo = modeloAtual;
+    const parametros = new URLSearchParams(location.search);
     const links = $("modelos-links");
-    for (const [chave, modelo] of Object.entries(modelos)) {
+    for (const [chave, exemplo] of Object.entries(modelos)) {
       const ancora = document.createElement("a");
-      ancora.href = `?modelo=${encodeURIComponent(chave)}`;
-      ancora.textContent = modelo.titulo;
+      parametros.set("modelo", chave);
+      ancora.href = `?${parametros}`;
+      ancora.textContent = exemplo.titulo;
       ancora.className = "modelo-link";
       if (chave === modeloAtual) ancora.setAttribute("aria-current", "page");
       links.append(ancora);
     }
   }
 
+  const destaque = loja.fotoDestaque || (modoDemonstracao && modelo.fotoDestaque);
+  if (destaque) {
+    const foto = $("foto-destaque");
+    foto.alt = destaque.alt;
+    foto.src = destaque.src;
+    foto.hidden = false;
+    $("hero-arte").hidden = true;
+  }
+
   const numeroConfigurado = linkWhatsApp(loja.whatsapp, "Teste") !== null;
   $("finalizar").firstChild.textContent = numeroConfigurado ? "Enviar pedido no WhatsApp " : "Ver prévia de pedido ";
-  $("selo-whatsapp").textContent = numeroConfigurado ? "Pedidos pelo WhatsApp" : "Prévia de pedido";
+  $("selo-whatsapp").hidden = !numeroConfigurado;
   $("texto-pedido-beneficio").textContent = numeroConfigurado ? "Finalize direto pelo WhatsApp" : "Veja a prévia para o WhatsApp";
   $("aviso-preco").textContent = modoDemonstracao
     ? "Valores ilustrativos. Na versão real, a loja confirma disponibilidade e eventual taxa de entrega no WhatsApp."

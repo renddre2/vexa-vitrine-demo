@@ -1,9 +1,9 @@
 // Modelo fictício para loja de roupas. Tamanhos e cores devem ser confirmados antes do pedido.
 export const loja = {
-  nome: "Essência Urbana · Exemplo",
-  categoria: "Moda e acessórios · Demonstração",
+  nome: "Essência Urbana",
+  categoria: "Moda e acessórios",
   chamada: "Peças versáteis para o seu estilo.",
-  descricao: "Explore roupas e acessórios, escolha suas peças favoritas e indique tamanho e cor nas observações do pedido.",
+  descricao: "Explore roupas e acessórios e indique o tamanho e a cor nas observações do pedido.",
   horario: "Seg a sáb · 10h às 19h (exemplo)",
   local: "Localidade ilustrativa · Brasil",
   whatsapp: "",

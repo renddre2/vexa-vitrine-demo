@@ -1,9 +1,9 @@
 // Modelo fictício para floricultura. Valores em centavos e contatos não configurados.
 export const loja = {
-  nome: "Jardim de Afetos · Exemplo",
-  categoria: "Flores e arranjos · Demonstração",
+  nome: "Jardim de Afetos",
+  categoria: "Flores e arranjos",
   chamada: "Flores que transformam momentos em lembranças.",
-  descricao: "Escolha um buquê, uma planta ou um arranjo especial e veja como organizar seu pedido pelo celular.",
+  descricao: "Buquês, arranjos e plantas para presentear ou trazer mais cor para casa.",
   horario: "Seg a sáb · 9h às 18h (exemplo)",
   local: "Localidade ilustrativa · Brasil",
   whatsapp: "",

@@ -1,10 +1,10 @@
 // Dados inteiramente fictícios, preparados para demonstrar a vitrine.
 // Valores em centavos. Nenhum WhatsApp comercial está configurado.
 export const loja = {
-  nome: "Doce Ideia · Exemplo",
-  categoria: "Confeitaria artesanal · Demonstração",
+  nome: "Doce Ideia",
+  categoria: "Confeitaria artesanal",
   chamada: "Um carinho em forma de doce para cada ocasião.",
-  descricao: "Conheça sabores e kits para presentear. Escolha seus favoritos e veja como o pedido chega organizado ao WhatsApp da confeitaria.",
+  descricao: "Bolos artesanais, docinhos e kits para celebrar, presentear ou acompanhar o café da tarde.",
   horario: "Seg a sáb · 9h às 18h (exemplo)",
   local: "Localidade ilustrativa · Brasil",
   whatsapp: "",

@@ -1,9 +1,9 @@
 // Modelo fictício para lanchonete. Valores em centavos. Nenhum pedido real é enviado.
 export const loja = {
-  nome: "Estação do Sabor · Exemplo",
-  categoria: "Lanches e combos · Demonstração",
+  nome: "Estação do Sabor",
+  categoria: "Lanches e combos",
   chamada: "Seu lanche favorito está a poucos cliques.",
-  descricao: "Escolha seu hambúrguer, adicione acompanhamentos e confira como montar um pedido completo pelo celular.",
+  descricao: "Hambúrgueres no pão brioche, porções crocantes e combos para matar a fome.",
   horario: "Ter a dom · 18h às 23h (exemplo)",
   local: "Localidade ilustrativa · Brasil",
   whatsapp: "",

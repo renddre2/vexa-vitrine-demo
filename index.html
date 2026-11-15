@@ -4,44 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#173a2b" />
-    <meta name="description" content="Demonstrações fictícias de vitrines digitais para pequenos negócios. Vexa Digital atende empreendedores de todo o Brasil." />
-    <title>Vexa Digital | Modelos de vitrines digitais</title>
-    <link rel="stylesheet" href="./estilos.css" />
-    <script type="module" src="./app.js"></script>
+    <meta name="description" content="Explore cinco vitrines de exemplo, escolha produtos e veja como fica a mensagem de pedido para o WhatsApp." />
+    <title>Vitrine de demonstração</title>
+    <link rel="stylesheet" href="./estilos.css?v=2" />
+    <script type="module" src="./app.js?v=2"></script>
   </head>
   <body>
-    <section class="faixa-demo" id="faixa-demo" aria-label="Demonstração da Vexa Digital">
-      <div class="largura faixa-demo-conteudo">
-        <div class="faixa-demo-intro">
-          <img class="vexa-logo" src="./assets/logo-vexa-digital.png" alt="Vexa Digital" width="112" height="112" />
-          <div class="faixa-demo-texto">
-            <span class="vexa-selo">DEMONSTRAÇÃO INTERATIVA</span>
-            <h2>Seu catálogo em um link. Seu pedido no WhatsApp.</h2>
-            <p>Explore cinco vitrines para diferentes negócios. Lojas, produtos e valores são fictícios.</p>
-          </div>
-        </div>
-        <div class="faixa-demo-modelos">
-          <span class="faixa-demo-legenda">Escolha um exemplo para explorar <span aria-hidden="true">↘</span></span>
-          <nav id="modelos-links" class="modelos-links" aria-label="Escolha o tipo de negócio"></nav>
-        </div>
-      </div>
-    </section>
     <header class="topo">
       <div class="largura topo-conteudo">
-        <a class="marca" href="#inicio" aria-label="Voltar ao início"><span class="marca-icone" id="marca-icone">🎂</span><span id="marca-nome">Doce Ideia · Exemplo</span></a>
-        <div class="topo-direita"><span class="aberto"><span class="bolinha"></span> <span id="selo-whatsapp">Prévia de pedido</span></span><a class="sacola-link" href="#pedido">Meu pedido <span id="contagem-topo">0</span></a></div>
+        <a class="marca" href="#inicio">
+          <span class="marca-icone" id="marca-icone" aria-hidden="true">🎂</span>
+          <span><span id="marca-nome">Doce Ideia</span><span id="loja-ficticia" class="loja-ficticia" hidden>Loja fictícia</span></span>
+        </a>
+        <div class="topo-direita">
+          <span class="aberto" id="selo-whatsapp" hidden>Pedidos pelo WhatsApp</span>
+          <a class="sacola-link" href="#pedido">Meu pedido <span id="contagem-topo">0</span></a>
+        </div>
       </div>
     </header>
 
     <main id="inicio" class="largura">
+      <nav id="modelos-demo" class="modelos-demo" aria-labelledby="modelos-rotulo" hidden>
+        <span id="modelos-rotulo">Modelos de vitrine</span>
+        <div id="modelos-links" class="modelos-links"></div>
+      </nav>
       <section class="hero" aria-labelledby="titulo">
         <div class="hero-texto">
-          <span class="etiqueta" id="categoria-loja">CONFEITARIA ARTESANAL · DEMONSTRAÇÃO</span>
+          <span class="etiqueta" id="categoria-loja">Confeitaria artesanal</span>
           <h1 id="titulo">Um carinho em forma de doce para cada ocasião.</h1>
-          <p id="descricao-loja">Conheça sabores e kits para presentear. Escolha seus favoritos e veja como o pedido chega organizado ao WhatsApp da confeitaria.</p>
+          <p id="descricao-loja">Bolos artesanais, docinhos e kits para celebrar, presentear ou acompanhar o café da tarde.</p>
           <a href="#catalogo" class="botao botao-claro">Explorar catálogo <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-arte" aria-hidden="true"><span class="circulo-arte"></span><span class="arte-principal" id="arte-principal">🎂</span><span class="arte-pequena" id="arte-pequena">🧁</span><span class="arte-estrela">✴</span></div>
+        <img id="foto-destaque" class="foto-destaque" width="512" height="512" fetchpriority="high" alt="" hidden />
+        <div id="hero-arte" class="hero-arte" aria-hidden="true"><span class="circulo-arte"></span><span class="arte-principal" id="arte-principal">🎂</span><span class="arte-pequena" id="arte-pequena">🧁</span><span class="arte-estrela">✴</span></div>
       </section>
 
       <div class="beneficios" aria-label="Informações da loja">
@@ -52,13 +47,13 @@
 
       <div class="conteudo">
         <section class="produtos" id="catalogo" aria-labelledby="titulo-catalogo">
-          <div class="secao-cabecalho"><div><span class="sobrelinha">ESCOLHA SEUS FAVORITOS</span><h2 id="titulo-catalogo"><span id="titulo-catalogo-texto">Doces e kits</span> <span class="mini-estrela">✳</span></h2></div><p id="aviso-catalogo">Produtos e valores ilustrativos.</p></div>
+          <div class="secao-cabecalho"><h2 id="titulo-catalogo"><span id="titulo-catalogo-texto">Doces e kits</span></h2><p id="aviso-catalogo">Produtos e valores ilustrativos.</p></div>
           <div id="filtros" class="filtros" role="group" aria-label="Filtrar categorias"></div>
           <div id="grade-produtos" class="grade-produtos"></div>
         </section>
 
         <aside class="painel-pedido" id="pedido" aria-labelledby="titulo-pedido">
-          <div class="painel-cabecalho"><div><span class="sobrelinha">TUDO CERTINHO?</span><h2 id="titulo-pedido">Meu pedido <span aria-hidden="true">🛍️</span></h2></div><span class="badge-contagem" id="contagem-painel">0 itens</span></div>
+          <div class="painel-cabecalho"><h2 id="titulo-pedido">Meu pedido</h2><span class="badge-contagem" id="contagem-painel">0 itens</span></div>
           <div id="itens-pedido" class="itens-pedido" aria-live="polite"><p class="carrinho-vazio">Seu carrinho ainda está vazio. Escolha seus produtos no catálogo!</p></div>
           <div class="resumo"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
           <p id="aviso-preco" class="aviso-preco">Disponibilidade e eventual taxa de entrega são confirmadas pela loja no WhatsApp.</p>
@@ -76,6 +71,14 @@
       </div>
     </main>
 
-    <footer class="rodape"><div class="largura"><strong id="nome-rodape">Doce Ideia · Exemplo</strong><span id="aviso-rodape">Demonstração fictícia. Nenhum pedido é enviado.</span></div></footer>
+    <footer class="rodape">
+      <div class="largura">
+        <div><strong id="nome-rodape">Doce Ideia</strong><span id="aviso-rodape">Demonstração fictícia. Nenhum pedido é enviado.</span></div>
+        <div id="vexa-assinatura" class="vexa-assinatura" hidden>
+          <img src="./assets/assinatura-vexa.webp" alt="" width="24" height="24" loading="lazy" />
+          <span>Feito pela Vexa Digital</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

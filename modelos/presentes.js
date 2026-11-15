@@ -1,9 +1,9 @@
 // Modelo fictício para loja de presentes. Valores em centavos. Nenhum pedido real é enviado.
 export const loja = {
-  nome: "Afeto & Papel · Exemplo",
-  categoria: "Presentes criativos · Demonstração",
+  nome: "Afeto & Papel",
+  categoria: "Presentes criativos",
   chamada: "Pequenos gestos, grandes lembranças.",
-  descricao: "Encontre lembranças, kits e mimos para ocasiões especiais. Monte seu pedido e confira a prévia pelo WhatsApp.",
+  descricao: "Encontre kits, papelaria e pequenos presentes para deixar o dia de alguém mais especial.",
   horario: "Seg a sáb · 10h às 19h (exemplo)",
   local: "Localidade ilustrativa · Brasil",
   whatsapp: "",
